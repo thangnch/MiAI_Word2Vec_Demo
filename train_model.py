@@ -1,4 +1,4 @@
-# importing required libraries
+
 import gensim, re
 import numpy as np
 import pandas as pd
@@ -107,11 +107,10 @@ else:
     word_model = gensim.models.Word2Vec.load(data_folder + sep + "word_model.save")
 
 
-# check the most similar word to 'python'
+# check the most similar word to 'cơm'
 print(word_model.wv.most_similar('cơm'))
 
-sys.exit()
-# save the vectors in a new matrix
+
 embedding_matrix = np.zeros((len(word_model.wv.vocab) + 1, 300))
 for i, vec in enumerate(word_model.wv.vectors):
   embedding_matrix[i] = vec
